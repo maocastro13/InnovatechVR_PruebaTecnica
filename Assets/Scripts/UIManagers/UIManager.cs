@@ -24,13 +24,12 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCountText(int collected, int total)
     {
-        countText.text = $"Objetos: {collected} / {total}";
+        countText.text = $"Estabilizadores: {collected} / {total}";
     }
 
     public void ShowCompletionMessage()
     {
         completionPanel.SetActive(true);
-        completionText.text = "¡Felicidades! Has recolectado todos los objetos.";
         if (completionPanelAnimation != null)
         {
             completionPanelAnimation.Play();

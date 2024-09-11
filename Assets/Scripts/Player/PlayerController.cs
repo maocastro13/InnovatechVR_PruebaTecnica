@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Camera playerCamera;
     private float verticalRotation = 0f;
-    private bool inputEnabled = true; // Nueva variable para controlar el input
+    private bool inputEnabled = false;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         playerCamera = GetComponentInChildren<Camera>();
-        Cursor.lockState = CursorLockMode.Locked;
+        // Removemos el bloqueo del cursor aquí
     }
 
     void Update()
@@ -46,8 +46,17 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
+    public void EnableInput()
+    {
+        inputEnabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     public void DisableInput()
     {
         inputEnabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
